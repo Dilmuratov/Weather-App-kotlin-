@@ -41,12 +41,14 @@
             android:src="@drawable/loctaion" />
 
         <TextView
+            android:id="@+id/city_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:fontFamily="@font/merriweathersans_bold"
             android:gravity="center"
             android:text="Delhi"
+            android:textColor="@color/black"
             android:textSize="20sp" />
 
     </LinearLayout>
@@ -58,6 +60,7 @@
         android:layout_marginTop="40dp"
         android:fontFamily="@font/merriweathersans_bold"
         android:text="Today"
+        android:textColor="@color/black"
         android:textSize="32sp"
         app:layout_constraintEnd_toEndOf="@id/ll_location"
         app:layout_constraintStart_toEndOf="@id/ll_location"
@@ -70,6 +73,7 @@
         android:layout_marginTop="-20dp"
         android:fontFamily="@font/merriweathersans_bold"
         android:text="31"
+        android:textColor="@color/black"
         android:textSize="100sp"
         app:layout_constraintEnd_toEndOf="@id/tv_day"
         app:layout_constraintStart_toStartOf="@id/tv_day"
@@ -93,12 +97,25 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/ll_location" />
 
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/lottie_animation_view"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        app:layout_constraintBottom_toBottomOf="@id/iv_type_of_weather"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/iv_type_of_weather"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/sun" />
+
     <TextView
+        android:id="@+id/tv_weather"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/merriweathersans_bold"
         android:text="Sunny"
         android:textAllCaps="true"
+        android:textColor="@color/black"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="@id/iv_type_of_weather"
         app:layout_constraintStart_toEndOf="@id/iv_type_of_weather"
@@ -107,7 +124,7 @@
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="wrap_content"
-        android:layout_height="42dp"
+        android:layout_height="46dp"
         android:orientation="vertical"
         android:weightSum="2"
         app:layout_constraintEnd_toEndOf="@id/tv_temperature"
@@ -127,6 +144,7 @@
                 android:layout_gravity="center"
                 android:fontFamily="@font/merriweathersans_bold"
                 android:text="Min :23.22 "
+                android:textColor="@color/black"
                 android:textSize="16sp" />
 
             <ImageView
@@ -150,6 +168,7 @@
                 android:layout_gravity="center"
                 android:fontFamily="@font/merriweathersans_bold"
                 android:text="Min :23.22 "
+                android:textColor="@color/black"
                 android:textSize="16sp" />
 
             <ImageView
@@ -169,10 +188,297 @@
         android:layout_marginTop="15dp"
         android:fontFamily="@font/merriweathersans_bold"
         android:text="Sunday"
+        android:textColor="@color/black"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
+    <TextView
+        android:id="@+id/tv_day_month_year"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="17dp"
+        android:fontFamily="@font/merriweathersans_bold"
+        android:text="25 January 2021"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@id/tv_weekday"
+        app:layout_constraintStart_toStartOf="@id/tv_weekday"
+        app:layout_constraintTop_toBottomOf="@id/tv_weekday" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="29dp"
+        android:layout_marginBottom="25dp"
+        android:background="@drawable/backgroundshape"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_day_month_year">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="80dp"
+                android:layout_height="88dp"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="9dp"
+                android:layout_marginEnd="9.5dp"
+                android:layout_marginBottom="12.5dp"
+                android:background="@drawable/backgroundshape"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/iv_icon_humidity"
+                    android:layout_width="10dp"
+                    android:layout_height="32dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="12dp"
+                    android:src="@drawable/humidity" />
+
+                <TextView
+                    android:id="@+id/tv_number_humidity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|bottom"
+                    android:ellipsize="marquee"
+                    android:fontFamily="@font/merriweathersans_bold"
+                    android:marqueeRepeatLimit="marquee_forever"
+                    android:scrollHorizontally="true"
+                    android:singleLine="true"
+                    android:text="70"
+                    android:textColor="@color/black" />
+
+                <TextView
+                    android:id="@+id/tv_humidity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Humidity"
+                    android:textColor="@color/black" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="80dp"
+                android:layout_height="88dp"
+                android:layout_marginHorizontal="9.5dp"
+                android:layout_marginTop="9dp"
+                android:background="@drawable/backgroundshape"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/iv_icon_wind"
+                    android:layout_width="48.5dp"
+                    android:layout_height="32dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="12dp"
+                    android:src="@drawable/wind" />
+
+                <TextView
+                    android:id="@+id/tv_number_wind"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|bottom"
+                    android:ellipsize="marquee"
+                    android:fontFamily="@font/merriweathersans_bold"
+                    android:marqueeRepeatLimit="marquee_forever"
+                    android:scrollHorizontally="true"
+                    android:singleLine="true"
+                    android:text="70"
+                    android:textColor="@color/black" />
+
+                <TextView
+                    android:id="@+id/tv_wind"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Wind Speed"
+                    android:textColor="@color/black" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="80dp"
+                android:layout_height="88dp"
+                android:layout_marginStart="9.5dp"
+                android:layout_marginTop="9dp"
+                android:layout_marginEnd="12dp"
+                android:layout_marginBottom="12.5dp"
+                android:background="@drawable/backgroundshape"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/iv_icon_rain"
+                    android:layout_width="36dp"
+                    android:layout_height="32dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="12dp"
+                    android:src="@drawable/rain" />
+
+                <TextView
+                    android:id="@+id/tv_number_conditions"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|bottom"
+                    android:ellipsize="marquee"
+                    android:fontFamily="@font/merriweathersans_bold"
+                    android:marqueeRepeatLimit="marquee_forever"
+                    android:scrollHorizontally="true"
+                    android:singleLine="true"
+                    android:text="70"
+                    android:textColor="@color/black" />
+
+                <TextView
+                    android:id="@+id/tv_conditions"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Condition"
+                    android:textColor="@color/black" />
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="80dp"
+                android:layout_height="88dp"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="9dp"
+                android:layout_marginEnd="9.5dp"
+                android:layout_marginBottom="12.5dp"
+                android:background="@drawable/backgroundshape"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/iv_icon_sunrise"
+                    android:layout_width="50dp"
+                    android:layout_height="32dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="12dp"
+                    android:src="@drawable/sunrise" />
+
+                <TextView
+                    android:id="@+id/tv_number_sunrise"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|bottom"
+                    android:ellipsize="marquee"
+                    android:fontFamily="@font/merriweathersans_bold"
+                    android:marqueeRepeatLimit="marquee_forever"
+                    android:scrollHorizontally="true"
+                    android:singleLine="true"
+                    android:text="70"
+                    android:textColor="@color/black" />
+
+                <TextView
+                    android:id="@+id/tv_sunrise"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Sunrise"
+                    android:textColor="@color/black" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="80dp"
+                android:layout_height="88dp"
+                android:layout_marginHorizontal="9.5dp"
+                android:layout_marginTop="9dp"
+                android:background="@drawable/backgroundshape"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/iv_icon_sunset"
+                    android:layout_width="50dp"
+                    android:layout_height="32dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="12dp"
+                    android:src="@drawable/sunset" />
+
+                <TextView
+                    android:id="@+id/tv_number_sunset"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|bottom"
+                    android:ellipsize="marquee"
+                    android:fontFamily="@font/merriweathersans_bold"
+                    android:marqueeRepeatLimit="marquee_forever"
+                    android:scrollHorizontally="true"
+                    android:singleLine="true"
+                    android:text="70"
+                    android:textColor="@color/black" />
+
+                <TextView
+                    android:id="@+id/tv_sunset"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Sunset"
+                    android:textColor="@color/black" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="80dp"
+                android:layout_height="88dp"
+                android:layout_marginStart="9.5dp"
+                android:layout_marginTop="9dp"
+                android:layout_marginEnd="12dp"
+                android:layout_marginBottom="12.5dp"
+                android:background="@drawable/backgroundshape"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/iv_icon_sea"
+                    android:layout_width="50dp"
+                    android:layout_height="32dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="12dp"
+                    android:src="@drawable/sea" />
+
+                <TextView
+                    android:id="@+id/tv_number_sea"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|bottom"
+                    android:ellipsize="marquee"
+                    android:fontFamily="@font/merriweathersans_bold"
+                    android:marqueeRepeatLimit="marquee_forever"
+                    android:scrollHorizontally="true"
+                    android:singleLine="true"
+                    android:text="70"
+                    android:textColor="@color/black" />
+
+                <TextView
+                    android:id="@+id/tv_sea"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Sea"
+                    android:textColor="@color/black" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
